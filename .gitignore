@@ -16,3 +16,4 @@ _test
 .DS_Store
 
 /bin/
+/client/dist/
