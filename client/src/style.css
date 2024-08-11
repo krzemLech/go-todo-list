@@ -1,0 +1,36 @@
+@import url("https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Raleway:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Nunito", sans-serif;
+  background-color: #f3f4f6;
+}
+
+main.main-container {
+  display: flex;
+}
+
+.react-icon {
+  filter: drop-shadow(0 0 1px #94a3b8);
+}
+
+.mongo-icon {
+  translate: -16px;
+}
+.mongo-icon circle {
+  fill: none;
+}
+.mongo-icon path {
+  fill: #0f172a;
+  stroke: #ddd;
+  stroke-width: 3;
+}
