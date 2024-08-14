@@ -2,7 +2,7 @@ import { HTTPError } from "../errors";
 
 const BASE_URL = import.meta.env.DEV
   ? "http://localhost:3001/api/v1"
-  : "api/v1";
+  : window.location.href + "api/v1";
 
 type Method = "GET" | "POST" | "PATCH" | "DELETE";
 
