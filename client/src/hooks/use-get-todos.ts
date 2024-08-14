@@ -21,7 +21,7 @@ export const useGetTodos = () => {
   }, [isError]);
 
   return {
-    data: data?.data,
+    data: data?.data || [],
     refetch,
     page,
     setPage,
