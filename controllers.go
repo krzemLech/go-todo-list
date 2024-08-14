@@ -52,9 +52,6 @@ func getTodos(c *fiber.Ctx) error {
 		fmt.Println("finding", err2)
 		return c.Status(fiber.StatusInternalServerError).JSON(fiber.Map{ "error": "Error fetching todos" })
 	}
-	if count == 0 {
-		return c.Status(fiber.StatusNotFound).JSON(fiber.Map{ "error": "Todos not found" })
-	}
 	defer cursor.Close(context.Background()) // close cursor
 
 	// format data
