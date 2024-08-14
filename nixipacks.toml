@@ -1,4 +1,0 @@
-providers = ["go", "nodejs"]
-
-[phases.setup]
-nixPkgs = ['nodejs', 'npm']
