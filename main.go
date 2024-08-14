@@ -26,10 +26,6 @@ func main() {
 
 	defer db.Client.Disconnect(context.Background())
 
-	app.Get("/", func(c *fiber.Ctx) error {
-		return c.Status(fiber.StatusOK).JSON(fiber.Map{ "msg": "works" })
-	})
-
 	// todos
 	todoRoutes := app.Group("/api/v1/todos")
 
