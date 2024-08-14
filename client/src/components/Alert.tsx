@@ -33,7 +33,7 @@ const textColors = {
 
 export const Alert: FC<AlertProps> = ({ type, msg, onClose }) => {
   return (
-    <div className={`p-4 flex capitalize ${alertColors[type]}`}>
+    <div className={`p-4 flex ${alertColors[type]}`}>
       {type === "error" && (
         <ExclamationCircleIcon className="size-6 text-red-500 mr-4" />
       )}
@@ -44,12 +44,14 @@ export const Alert: FC<AlertProps> = ({ type, msg, onClose }) => {
         <CheckBadgeIcon className="size-6 text-green-500 mr-4" />
       )}
       <div className={textColors[type]}>{msg}</div>
-      <button>
-        <XMarkIcon
-          className={"size-4 text-slate-900 mt-1 ml-4 " + btnColors[type]}
-          onClick={onClose}
-        />
-      </button>
+      <div className="ml-auto pl-4">
+        <button>
+          <XMarkIcon
+            className={"size-4 text-slate-900 mt-1" + btnColors[type]}
+            onClick={onClose}
+          />
+        </button>
+      </div>
     </div>
   );
 };

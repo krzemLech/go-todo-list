@@ -1,7 +1,7 @@
 import { FC } from "react";
 import { CheckIcon } from "@heroicons/react/24/solid";
 import { XCircleIcon } from "@heroicons/react/24/outline";
-import { useToggleTodo, useDeleteTodo } from "../api";
+import { useToggleTodo, useDeleteTodo } from "../hooks";
 
 type Todo = {
   _id: string;
@@ -35,7 +35,7 @@ export const TodoList: FC<Props> = ({ todos }) => {
 
             <p className="text-sm font-light text-white">{todo.title}</p>
           </div>
-          <div className="hidden shrink-0 sm:flex sm:items-center gap-10">
+          <div className="shrink-0 flex sm:items-center gap-3 sm:gap-10">
             <button
               onClick={() =>
                 onToggle({ id: todo._id, completed: !todo.completed })

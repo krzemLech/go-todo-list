@@ -6,6 +6,7 @@ import (
 	"log"
 
 	"github.com/krzemLech/go-todo-app/config"
+	"go.mongodb.org/mongo-driver/bson/primitive"
 	"go.mongodb.org/mongo-driver/mongo"
 	"go.mongodb.org/mongo-driver/mongo/options"
 )
@@ -16,7 +17,6 @@ var Todos *mongo.Collection
 func ConnectMongo() {
 	var err error
 	mongoUri := config.Envs.MongoUri
-	fmt.Println(mongoUri)
 	clientOptions := options.Client().ApplyURI(mongoUri)
 	Client, err = mongo.Connect(context.Background(), clientOptions)
 	if err != nil {
@@ -28,4 +28,8 @@ func ConnectMongo() {
 	}
 	Todos = Client.Database("go_test").Collection("todos")
 	fmt.Println("Connected to MongoDB!")
+}
+
+func ConvertToID(id string) (primitive.ObjectID, error) {
+	return  primitive.ObjectIDFromHex(id)
 }

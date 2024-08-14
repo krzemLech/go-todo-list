@@ -1,6 +1,7 @@
 import { useState, FC } from "react";
 import { PlusIcon, ArrowPathIcon } from "@heroicons/react/24/solid";
-import { useAddTodo } from "../api";
+import { useAddTodo } from "../hooks";
+import { HTTPError } from "../errors";
 
 export const TodoForm: FC = () => {
   const [text, setText] = useState("");
@@ -11,7 +12,7 @@ export const TodoForm: FC = () => {
     e.preventDefault();
     add(text)
       .then(() => setText(""))
-      .catch(console.error);
+      .catch((e: HTTPError) => console.error(e.toString()));
   };
 
   return (

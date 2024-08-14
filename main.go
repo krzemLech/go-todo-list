@@ -9,11 +9,6 @@ import (
 	"github.com/krzemLech/go-todo-app/db"
 	"go.mongodb.org/mongo-driver/mongo"
 )
-type Todo struct {
-	ID        string    `json:"_id,omitempty" bson:"_id,omitempty"`
-	Title     string `json:"title"`
-	Completed bool   `json:"completed"`
-}
 
 var collection *mongo.Collection
 
@@ -32,13 +27,13 @@ func main() {
 	defer db.Client.Disconnect(context.Background())
 
 	app.Get("/", func(c *fiber.Ctx) error {
-		return c.Status(fiber.StatusOK).JSON(fiber.Map{ "msg": "Hello, World!" })
+		return c.Status(fiber.StatusOK).JSON(fiber.Map{ "msg": "works" })
 	})
 
 	// todos
 	todoRoutes := app.Group("/api/v1/todos")
 
-	todoRoutes.Post("/", addTodo)
+	todoRoutes.Post("/", checkMaxCount, addTodo)
 	todoRoutes.Get("/", getTodos)
 	todoRoutes.Get("/:id", getTodo)
 	todoRoutes.Patch("/:id", updateTodo);

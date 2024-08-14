@@ -2,9 +2,9 @@ import { QueryClientProvider, QueryClient } from "@tanstack/react-query";
 import { Header } from "./components/Header";
 import { Layout } from "./components/Layout";
 import { Todos } from "./components/Todos";
-import "./style.css";
 import { AlertsContextProvider } from "./context/AlertsContext";
 import { AlertsContainer } from "./components/AlertsContainer";
+import "./style.css";
 
 const queryClient = new QueryClient();
 
