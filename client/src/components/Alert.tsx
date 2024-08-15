@@ -14,8 +14,8 @@ type AlertProps = {
 };
 
 const alertColors = {
-  success: "bg-green-500/20",
-  info: "bg-blue-500/20",
+  success: "bg-green-500/30",
+  info: "bg-blue-500/30",
   error: "bg-red-500/30",
 };
 
@@ -33,7 +33,7 @@ const textColors = {
 
 export const Alert: FC<AlertProps> = ({ type, msg, onClose }) => {
   return (
-    <div className={`p-4 flex ${alertColors[type]}`}>
+    <div className={`p-4 flex ${alertColors[type]} z-10`}>
       {type === "error" && (
         <ExclamationCircleIcon className="size-6 text-red-500 mr-4" />
       )}
